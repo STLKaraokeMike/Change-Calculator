@@ -1,0 +1,66 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package project2pkg.console.mwhitaker;
+import java.util.Scanner;
+/**
+ *
+ * @author BA202
+ */
+public class Project2ConsoleMwhitaker {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // declare variables
+        int cents=100, quarters, dimes, nickels, pennies;
+        String continueyn = "y";
+        // create a scanner object
+        Scanner input = new Scanner(System.in);
+        // display a welcome message
+        System.out.println("Welcome to Michael's Chanage Calcluator!");
+        // set the condition for which the program will repeat.
+        while (continueyn.equalsIgnoreCase("y"))
+        {
+        // ensure that the number of cents is valid
+        while ((cents>99) || (cents<0))
+        {
+        // prompt the user to enter number of cents
+        System.out.println("Please enter the number of cents you have:");
+        // read the input from the user and place the input into variable cents
+        cents = input.nextInt();
+        }
+        // compute the number of quarters
+        quarters=cents/25;
+        // compute the remainder
+        cents%=25;  // same as cents = cents%25
+        // compute the number of dimes
+        dimes=cents/10;
+        // compute the remainder
+        cents%=10;
+        //compute the number of nickels
+        nickels=cents/5;
+        // compute the remainder
+        cents%=5;
+        // set the remainder to equal the number of pennies
+        pennies=cents;
+        // display the number of each coin
+        System.out.println("You have " + quarters + " quarters.");
+        System.out.println("You have " + dimes + " dimes.");
+        System.out.println("You have " + nickels + " nickels.");
+        System.out.println("You have " + pennies + " pennies.");
+        
+        // initialize the value of cents
+        cents=100;
+        // ask the user if they would like to repeat
+        System.out.println("\nWould you like to repeat? (y/n)");
+        continueyn = input.next();
+        }
+    }
+    
+}
+
